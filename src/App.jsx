@@ -5,7 +5,28 @@ import HomePage from "./Pages/HomePage"
 import PageNotFound from "./Pages/PageNotFound"
 import AppLayout from  "./Pages/AppLayout"
 import Login from "./Pages/Login"
+import CityList from "./components/CityList"
+import { useEffect, useState } from "react"
+const BASE_URL ="http://localhost:8000"
 function App() {
+  const [cities,setCities]=useState([])
+  const [isLoading ,setIsLoading] = useState(0)
+  useEffect(function(){
+    async function fetchCities(){
+     try  {
+      setIsLoading(true)
+      const res = await fetch(`${BASE_URL}/cities`)
+      const data = await res.json();
+      setCities(data)
+    } 
+    catch {
+      alert('e')
+    }finally{
+      setIsLoading(false)
+    }
+  }
+  fetchCities()
+  },[])
   return (
     <div>
      <BrowserRouter >
@@ -16,8 +37,8 @@ function App() {
       <Route path="login" element={<Login/>} />
       <Route path="app" element={<AppLayout/>} >
         {/* index route will shown when no other route matches */}
-        <Route index element={<p>List</p>} />
-        <Route  path="cities" element={<p>List of Cities</p>}/>
+        <Route index element={<CityList cities={cities} isLoading={isLoading}/>} />
+        <Route  path="cities" element={<CityList cities={cities} isLoading={isLoading}/>}/>
         <Route  path="countries" element={<p>List of countries</p>}/>
         <Route  path="form" element={<p>Form</p>}/>
       </Route>
