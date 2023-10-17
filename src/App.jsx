@@ -7,10 +7,12 @@ import AppLayout from  "./Pages/AppLayout"
 import Login from "./Pages/Login"
 import CityList from "./components/CityList"
 import { useEffect, useState } from "react"
+import CountryList from "./components/CountryList"
 const BASE_URL ="http://localhost:8000"
 function App() {
   const [cities,setCities]=useState([])
   const [isLoading ,setIsLoading] = useState(0)
+
   useEffect(function(){
     async function fetchCities(){
      try  {
@@ -39,7 +41,7 @@ function App() {
         {/* index route will shown when no other route matches */}
         <Route index element={<CityList cities={cities} isLoading={isLoading}/>} />
         <Route  path="cities" element={<CityList cities={cities} isLoading={isLoading}/>}/>
-        <Route  path="countries" element={<p>List of countries</p>}/>
+        <Route  path="countries" element={<CountryList cities={cities}  />}/>
         <Route  path="form" element={<p>Form</p>}/>
       </Route>
       <Route path="*" element={<PageNotFound/>} />
