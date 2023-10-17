@@ -1,6 +1,6 @@
 
 import PageNav from "../components/PageNav"
-
+import { Link } from "react-router-dom"
 function HomePage() {
     return (
         <div>
@@ -9,7 +9,7 @@ function HomePage() {
             {/* if we use anchor tag eah time 
             it will refresh the page
             <a href="/pricing">pricing</a> */}
-            {/* <Link to='/pricing' >Pricing</Link> */}
+            <Link to='/app' >Go to app</Link>
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom"
-
+import styles from './PageNav.module.css'
 function PageNav() {
     return (
-        <nav>
-            <ul>
+        <nav className={styles.nav}>
+            <ul className={styles.ul}>
                 <li>
                     {/* we can use NavNavLink instead NavLink
                     to get active class
