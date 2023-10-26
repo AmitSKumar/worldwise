@@ -14,6 +14,7 @@ function Map() {
    const {isLoading:isLoadingPosition,
     position:geoLocationPosition,getPosition} = useGeolocation()
    const [mapLat,mapLng] =useUrlPosition();
+
       useEffect(function(){
     if(mapLat && mapLng){
         setMapPosition([mapLat,mapLng])

@@ -24,7 +24,8 @@ function CitiesProvider({children}){
     }
     fetchCities()
     },[])
-      async function getCity(id){
+
+    async function getCity(id){
         try  {
          setIsLoading(true)
          const res = await fetch(`${BASE_URL}/cities/${id}`)
@@ -37,11 +38,33 @@ function CitiesProvider({children}){
          setIsLoading(false)
        }
     }
+    async function createCity(newCity){
+      try  {
+       setIsLoading(true)
+       const res = await fetch(`${BASE_URL}/cities`,{
+        method:'POST',
+        body:JSON.stringify(newCity),
+        headers:{
+          "Content-Type":"application/json"
+        }
+
+       })
+       const data = await res.json();
+       setCities((cities)=> [...cities,data])
+     } 
+     catch {
+       alert('e')
+     }finally{
+       setIsLoading(false)
+     }
+  }
     return <CitiesContext.Provider
     value={{
         cities,
         isLoading,
-        currentCity,getCity
+        currentCity,
+        getCity,
+        createCity
     }}>
         {children}
     </CitiesContext.Provider>
@@ -51,4 +74,4 @@ function useCities(){
   if(context===undefined) return Error("citiescontext was used outside cities provider")
   return context;
 }
-export {CitiesProvider,useCities}
+export {CitiesProvider,useCities,}
