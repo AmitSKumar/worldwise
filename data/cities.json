@@ -37,18 +37,6 @@
       "id": 98443199
     },
     {
-      "cityName": "Chandauli",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "date": "2023-10-26T13:43:24.326Z",
-      "notes": "dee daya",
-      "position": {
-        "lat": "25.28185581201773",
-        "lng": "83.13807624656388"
-      },
-      "id": 98443200
-    },
-    {
       "cityName": "Castello de la Plana",
       "country": "Spain",
       "emoji": "🇪🇸",
@@ -83,6 +71,30 @@
         "lng": "83.17121827400315"
       },
       "id": 98443203
+    },
+    {
+      "cityName": "Castello de la Plana",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-10-26T15:35:15.725Z",
+      "notes": "teast",
+      "position": {
+        "lat": "40.013536380349905",
+        "lng": "-0.07107686582962681"
+      },
+      "id": 98443204
+    },
+    {
+      "cityName": "Gonda City",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2023-10-26T15:42:03.361Z",
+      "notes": "trst",
+      "position": {
+        "lat": "27.126795719250396",
+        "lng": "82.10045577292207"
+      },
+      "id": 98443205
     }
   ]
 }
