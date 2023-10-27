@@ -18,6 +18,7 @@ function reducer(state, action) {
       return {
         ...state,
         isAuthenticated: false,
+        user: null,
       };
     default:
       throw new Error("no action matched");
@@ -52,6 +53,7 @@ function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined)
     throw new Error("Authcontext was outside authProvider");
+  return context;
 }
 
 export { AuthProvider, useAuth };
